@@ -4,7 +4,7 @@ const generateTasks = (number = 3) => {
     taskArray.push({
       title: `Title ${i}`,
       description: `Description ${i}`,
-    })
+    });
   }
   return taskArray;
 };

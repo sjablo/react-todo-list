@@ -6,8 +6,10 @@ export default () => {
   const [tasks, setTasks] = useState(mockupTasks);
 
   return (
-  <div>
-  {tasks.map((task, index) => <Task key={index} task={task} />)}
-  </div>
+    <div>
+      {tasks.map((task, index) => (
+        <Task key={index} task={task} />
+      ))}
+    </div>
   );
 };
