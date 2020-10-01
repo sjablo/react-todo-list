@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { List, Header } from "./components";
+import { List, Header, Modal } from "./components";
 
-const App = () => (
-  <div className="App">
-    <Header text={"TODO List"} />
-    <List />
-  </div>
-);
+const App = () => {
+  const [isModalOpen, toggleModalOpen] = useState(false);
+
+  return (
+    <div className="App">
+      <Header text={"TODO List"} />
+      <List openModal={toggleModalOpen} />
+      {isModalOpen && <Modal onClose={() => toggleModalOpen(false)} />}
+    </div>
+  );
+};
 
 export default App;

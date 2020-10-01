@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { tasks as mockupTasks } from "mocks";
 import { generateCrudMethods } from "utils";
 import Task from "./Task";
+import Button from "./Button";
 
-export default () => {
-  const [tasks, setTasks] = useState(mockupTasks);
+const List = ({ openModal }) => {
+  const [tasks, setTasks] = useState(
+    process.env.NODE_ENV === "production" ? [] : mockupTasks
+  );
   useEffect(() => {
     window.tasks = tasks;
   }, [tasks]);
@@ -16,6 +19,9 @@ export default () => {
           <th>Title</th>
           <th>Description</th>
           <th>Actions</th>
+          <th>
+            <Button onClick={openModal} text="Add new" />
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -30,3 +36,5 @@ export default () => {
     </table>
   );
 };
+
+export default List;
