@@ -4,7 +4,7 @@ import Collapsible from "./Collapsible";
 export default ({
   task: { title, description, backgroundColor, textColor },
 }) => (
-  <tr>
+  <tr style={{ backgroundColor, color: textColor }}>
     <td>{title}</td>
     <td>
       <Collapsible text={description} />
