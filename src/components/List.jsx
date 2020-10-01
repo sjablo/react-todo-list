@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Task from "./Task";
 import { tasks as mockupTasks } from "mocks";
+import { generateCrudMethods } from "utils";
+import Task from "./Task";
 
 export default () => {
   const [tasks, setTasks] = useState(mockupTasks);
@@ -14,11 +15,16 @@ export default () => {
         <tr>
           <th>Title</th>
           <th>Description</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         {tasks.map((task, index) => (
-          <Task key={index} task={task} />
+          <Task
+            key={index}
+            task={task}
+            methods={generateCrudMethods(setTasks, index)}
+          />
         ))}
       </tbody>
     </table>
