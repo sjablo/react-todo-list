@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Task from "./Task";
 import { tasks as mockupTasks } from "mocks";
 
 export default () => {
   const [tasks, setTasks] = useState(mockupTasks);
-  window.tasks = tasks;
+  useEffect(() => {
+    window.tasks = tasks;
+  }, [tasks]);
 
   return (
     <table>
