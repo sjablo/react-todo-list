@@ -7,10 +7,18 @@ export default () => {
   window.tasks = tasks;
 
   return (
-    <div>
-      {tasks.map((task, index) => (
-        <Task key={index} task={task} />
-      ))}
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tasks.map((task, index) => (
+          <Task key={index} task={task} />
+        ))}
+      </tbody>
+    </table>
   );
 };
