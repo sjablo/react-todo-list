@@ -4,6 +4,7 @@ import { tasks as mockupTasks } from "mocks";
 
 export default () => {
   const [tasks, setTasks] = useState(mockupTasks);
+  window.tasks = tasks;
 
   return (
     <div>
