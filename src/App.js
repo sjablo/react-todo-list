@@ -1,7 +1,6 @@
 import React from 'react';
 
-import List from "./List";
-import tasks from "./tasks";
+import List from "./components/List";
 
 function App() {
   return (
@@ -9,7 +8,7 @@ function App() {
       <header className="App-header">
         TODO List
       </header>
-      <List tasks={tasks} />
+      <List />
     </div>
   );
 }
