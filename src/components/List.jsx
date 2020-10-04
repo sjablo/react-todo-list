@@ -3,11 +3,16 @@ import { tasks as mockupTasks } from "mocks";
 import { generateCrudMethods } from "utils";
 import Task from "./Task";
 import Button from "./Button";
+import EditionForm from "./EditionForm";
+import Modal from "./Modal";
 
-const List = ({ openModal }) => {
+const List = () => {
   const [tasks, setTasks] = useState(
     process.env.NODE_ENV === "production" ? [] : mockupTasks
   );
+
+  const [isModalOpen, toggleModalOpen] = useState(false);
+
   useEffect(() => {
     window.tasks = tasks;
   }, [tasks]);
@@ -20,7 +25,15 @@ const List = ({ openModal }) => {
           <th>Description</th>
           <th>Actions</th>
           <th>
-            <Button onClick={openModal} text="Add new" />
+            <Button onClick={() => toggleModalOpen(true)} text="Add new" />
+            {isModalOpen && (
+              <Modal onClose={() => toggleModalOpen(false)}>
+                <EditionForm
+                  title="Add new task"
+                  handleSubmit={generateCrudMethods(setTasks).create}
+                />
+              </Modal>
+            )}
           </th>
         </tr>
       </thead>
