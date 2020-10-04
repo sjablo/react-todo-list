@@ -46,6 +46,7 @@ const List = () => {
             key={index}
             task={task}
             methods={generateCrudMethods(setTasks, index)}
+            closeModal={() => toggleModalOpen(false)}
           />
         ))}
       </tbody>
