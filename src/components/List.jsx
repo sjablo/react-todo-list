@@ -30,7 +30,10 @@ const List = () => {
               <Modal onClose={() => toggleModalOpen(false)}>
                 <EditionForm
                   title="Add new task"
-                  handleSubmit={generateCrudMethods(setTasks).create}
+                  handleSubmit={(data) => {
+                    generateCrudMethods(setTasks).create(data);
+                    toggleModalOpen(false);
+                  }}
                 />
               </Modal>
             )}
