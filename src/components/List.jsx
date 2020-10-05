@@ -7,6 +7,14 @@ import EditionForm from "./EditionForm";
 import Modal from "./Modal";
 
 const List = () => {
+  // tasks can be parsed from localStorage in the future:
+  // const { localStorage } = window;
+  // let i = 0;
+  // const parsedTasks = []
+  // while (sessionStorage.getItem(`${i}`)) {
+  //  parsedTasks.push(JSON.parse(sessionStorage.getItem(`${i}`)));
+  //  i++;
+  // }
   const [tasks, setTasks] = useState(
     process.env.NODE_ENV === "production" ? [] : mockupTasks
   );
@@ -15,6 +23,9 @@ const List = () => {
 
   useEffect(() => {
     window.tasks = tasks;
+    // save tasks to localStorage:
+    // const { localStorage } = window;
+    // for (let i = 0; i < tasks.length; i++) localStorage.setItem(`${i}`, JSON.stringify(tasks[i]));
   }, [tasks]);
 
   return (
