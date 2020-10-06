@@ -32,6 +32,7 @@ const List = () => {
     <table>
       <thead>
         <tr>
+          <th>No.</th>
           <th>Title</th>
           <th>Description</th>
           <th>Actions</th>
@@ -54,6 +55,7 @@ const List = () => {
       <tbody>
         {tasks.map((task, index) => (
           <Task
+            index={index}
             key={index}
             task={task}
             methods={generateCrudMethods(setTasks, index)}

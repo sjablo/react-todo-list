@@ -35,6 +35,7 @@ const EditionForm = ({
           value={state.title}
           handleChange={setState}
           required
+          multifield
         />
         <Input
           type="text"
@@ -42,6 +43,7 @@ const EditionForm = ({
           label="Description"
           value={state.description}
           handleChange={setState}
+          multifield
         />
         <Input
           type="text"
@@ -49,6 +51,7 @@ const EditionForm = ({
           label="Background color"
           value={state.backgroundColor}
           handleChange={setState}
+          multifield
         />
         <Input
           type="text"
@@ -56,6 +59,7 @@ const EditionForm = ({
           label="Text color"
           value={state.textColor}
           handleChange={setState}
+          multifield
         />
         <Input type="submit" />
       </form>
