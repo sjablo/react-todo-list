@@ -34,8 +34,8 @@ const List = () => {
           <th>No.</th>
           <th>Title</th>
           <th>Description</th>
-          <th>Actions</th>
           <th>
+            <span>Actions</span>
             <Button onClick={() => toggleModalOpen(true)} text="Add new" />
             {isModalOpen && (
               <Modal onClose={() => toggleModalOpen(false)}>

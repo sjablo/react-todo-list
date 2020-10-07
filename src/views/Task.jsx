@@ -53,7 +53,7 @@ const Task = ({
             reorder(newIndex - 1);
             setNewIndex(index + 1);
           }}
-          text="Change task number"
+          text="Change task no."
         />
       </td>
     </tr>
