@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Input from "./Input";
-import Header from "./Header";
+import { Input, Header } from "components";
 
 const EditionForm = ({
   task: {

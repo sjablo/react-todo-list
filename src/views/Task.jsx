@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import Collapsible from "./Collapsible";
-import Button from "./Button";
-import Modal from "./Modal";
+import { Collapsible, Button, Modal, Input } from "components";
 import EditionForm from "./EditionForm";
-import Input from "./Input";
 
 const Task = ({
   index,

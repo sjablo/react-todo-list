@@ -1,6 +1,7 @@
 import React from "react";
 
-import { List, Header } from "components";
+import { Header } from "components";
+import { List } from "views";
 
 const App = () => (
   <div className="App">

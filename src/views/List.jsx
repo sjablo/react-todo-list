@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { tasks as mockupTasks } from "mocks";
 import { generateCrudMethods } from "utils";
-import Task from "./Task";
-import Button from "./Button";
+import { Button, Modal } from "components";
 import EditionForm from "./EditionForm";
-import Modal from "./Modal";
+import Task from "./Task";
 
 const List = () => {
   // tasks can be parsed from localStorage in the future:

@@ -17,7 +17,7 @@ const Modal = ({ children, onClose }) => {
 
   return ReactDOM.createPortal(
     <div className={styles.modal}>
-      <Button onClick={onClose} text="X" />
+      <Button className={styles.button} onClick={onClose} text="X" />
       {children}
     </div>,
     el

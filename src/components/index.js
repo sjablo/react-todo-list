@@ -1,6 +1,7 @@
 import Button from "./Button";
+import Collapsible from "./Collapsible";
 import Header from "./Header";
-import List from "./List";
+import Input from "./Input";
 import Modal from "./Modal";
 
-export { List, Header, Button, Modal };
+export { Input, Header, Button, Modal, Collapsible };
