@@ -24,22 +24,24 @@ export default (stateModifier, index) => ({
       if (index < newIndex)
         // move element to the back
         return prevState.map((element, currentIndex, array) => {
+          // shift the elements between index and newIndex
           if (newIndex > currentIndex && currentIndex >= index)
             return array[currentIndex + 1];
-          // shift the elements between index and newIndex
-          else if (currentIndex === newIndex) return array[index];
           // set the element at desired index
-          else return element; // part of array before index or after newIndex doesn't change
+          else if (currentIndex === newIndex) return array[index];
+          // part of array before index or after newIndex doesn't change:
+          else return element;
         });
       else if (index > newIndex)
         // move element to the front
         return prevState.map((element, currentIndex, array) => {
+          // unshift the elements between newIndex and index:
           if (newIndex < currentIndex && currentIndex <= index)
             return array[currentIndex - 1];
-          // unshift the elements between newIndex and index
+          // set the element at desired index:
           else if (currentIndex === newIndex) return array[index];
-          // set the element at desired index
-          else return element; // part of array before newIndex or after index doesn't change
+          // part of array before newIndex or after index doesn't change:
+          else return element;
         });
       else return prevState;
     }),
