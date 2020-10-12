@@ -1,3 +1,4 @@
 import generateCrudMethods from "./generateCrudMethods";
+import { getData, setData } from "./storage";
 
-export { generateCrudMethods };
+export { generateCrudMethods, getData, setData };

@@ -1,30 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { tasks as mockupTasks } from "mocks";
-import { generateCrudMethods } from "utils";
+import { generateCrudMethods /*, getData, setData*/ } from "utils";
 import { Button, Modal } from "components";
 import EditionForm from "./EditionForm";
 import Task from "./Task";
 
 const List = () => {
   // tasks can be parsed from localStorage in the future:
-  // const { localStorage } = window;
-  // let i = 0;
-  // const parsedTasks = []
-  // while (sessionStorage.getItem(`${i}`)) {
-  //  parsedTasks.push(JSON.parse(sessionStorage.getItem(`${i}`)));
-  //  i++;
-  // }
+  // const [tasks, setTasks] = useState(getData());
+
   const [tasks, setTasks] = useState(
-    process.env.NODE_ENV === "production" ? [] : mockupTasks
+    process.env.NODE_ENV === "production" ? [] : mockupTasks // TODO: move mockup logic outside of component
   );
 
   const [isModalOpen, toggleModalOpen] = useState(false);
 
   useEffect(() => {
+    // export tasks to global window object (accessible via console) after every state change
     window.tasks = tasks;
-    // save tasks to localStorage:
-    // const { localStorage } = window;
-    // for (let i = 0; i < tasks.length; i++) localStorage.setItem(`${i}`, JSON.stringify(tasks[i]));
+
+    // save tasks to localStorage after every state change:
+    // setData(tasks);
   }, [tasks]);
 
   return (
