@@ -1,30 +1,26 @@
 import React from "react";
+import cx from "classnames";
+import styles from "./Input.module.css";
 
 const Input = ({
-  name,
-  value,
+  className,
   handleChange,
   label,
-  type,
+  name,
   required,
-  multifield = false,
+  type,
+  value,
 }) => (
   <>
-    <label htmlFor={name}>{label}</label>
+    <label className={styles.label} htmlFor={name}>
+      {label}
+    </label>
     <input
+      className={cx(styles.input, className)}
       type={type}
       name={name}
       value={value}
-      onChange={(event) => {
-        event.persist();
-        if (multifield) {
-          handleChange((prevState) => ({
-            ...prevState,
-            [event.target.name]: event.target.value,
-          }));
-        } else handleChange(event.target.value);
-        event.preventDefault();
-      }}
+      onChange={handleChange}
       required={required}
     />
   </>

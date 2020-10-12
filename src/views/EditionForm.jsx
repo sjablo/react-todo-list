@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Input, Header } from "components";
 
 const EditionForm = ({
@@ -18,6 +18,17 @@ const EditionForm = ({
     textColor,
   });
 
+  const handleChange = useCallback(
+    (event) => {
+      event.persist();
+      setState((prevState) => ({
+        ...prevState,
+        [event.target.name]: event.target.value,
+      }));
+    },
+    [setState]
+  );
+
   return (
     <div>
       <Header text={formTitle} />
@@ -32,33 +43,29 @@ const EditionForm = ({
           name="title"
           label="Title"
           value={state.title}
-          handleChange={setState}
+          handleChange={handleChange}
           required
-          multifield
         />
         <Input
           type="text"
           name="description"
           label="Description"
           value={state.description}
-          handleChange={setState}
-          multifield
+          handleChange={handleChange}
         />
         <Input
           type="text"
           name="backgroundColor"
           label="Background color"
           value={state.backgroundColor}
-          handleChange={setState}
-          multifield
+          handleChange={handleChange}
         />
         <Input
           type="text"
           name="textColor"
           label="Text color"
           value={state.textColor}
-          handleChange={setState}
-          multifield
+          handleChange={handleChange}
         />
         <Input type="submit" />
       </form>
