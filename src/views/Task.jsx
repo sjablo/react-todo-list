@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Collapsible, Button, Modal, Input } from "components";
 import EditionForm from "./EditionForm";
 
@@ -12,6 +12,14 @@ const Task = ({
   const [newIndex, setNewIndex] = useState(index + 1);
 
   const { title, description, backgroundColor, textColor } = task;
+
+  const handleChange = useCallback(
+    (event) => {
+      event.persist();
+      setNewIndex(event.target.value);
+    },
+    [setNewIndex]
+  );
 
   return (
     <tr style={{ backgroundColor, color: textColor }}>
@@ -46,7 +54,7 @@ const Task = ({
           name="newIndex"
           label="New place"
           value={newIndex}
-          handleChange={setNewIndex}
+          handleChange={handleChange}
         />
         <Button
           onClick={() => {
