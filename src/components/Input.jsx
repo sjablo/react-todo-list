@@ -1,6 +1,6 @@
 import React from "react";
-import cx from "classnames";
-import styles from "./Input.module.css";
+import cn from "classnames";
+import styles from "./Input.module.scss";
 
 const Input = ({
   className,
@@ -16,7 +16,7 @@ const Input = ({
       {label}
     </label>
     <input
-      className={cx(styles.input, className)}
+      className={cn(styles.input, className)}
       type={type}
       name={name}
       value={value}
