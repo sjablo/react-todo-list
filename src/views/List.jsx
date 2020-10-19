@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { tasks as mockupTasks } from "mocks";
-import { generateCrudMethods /*, getData, setData*/ } from "utils";
+import { generateCrudMethods /*, getData, setData */ } from "utils";
 import { Button, Modal } from "components";
 import EditionForm from "./EditionForm";
 import Task from "./Task";
 
 const List = () => {
   // tasks can be parsed from localStorage in the future:
-  // const [tasks, setTasks] = useState(getData());
+  // const [tasks, setTasks] = useState(() => getData("tasks"));
 
   const [tasks, setTasks] = useState(
-    process.env.NODE_ENV === "production" ? [] : mockupTasks // TODO: move mockup logic outside of component
+    process.env.NODE_ENV === "production" ? [] : mockupTasks
   );
 
   const [isModalOpen, toggleModalOpen] = useState(false);
@@ -20,7 +20,7 @@ const List = () => {
     window.tasks = tasks;
 
     // save tasks to localStorage after every state change:
-    // setData(tasks);
+    // setData("tasks", tasks);
   }, [tasks]);
 
   return (
