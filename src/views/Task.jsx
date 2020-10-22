@@ -1,5 +1,7 @@
 import React, { useState, useCallback } from "react";
+
 import { Collapsible, Button, Modal, Input } from "components";
+
 import EditionForm from "./EditionForm";
 
 const Task = ({
@@ -13,13 +15,10 @@ const Task = ({
 
   const { title, description, backgroundColor, textColor } = task;
 
-  const handleChange = useCallback(
-    (event) => {
-      event.persist();
-      setNewIndex(event.target.value);
-    },
-    [setNewIndex]
-  );
+  const handleChange = useCallback((event) => {
+    event.persist();
+    setNewIndex(event.target.value);
+  }, []);
 
   return (
     <tr style={{ backgroundColor, color: textColor }}>
@@ -61,7 +60,7 @@ const Task = ({
             reorder(newIndex - 1);
             setNewIndex(index + 1);
           }}
-          text="Change task no."
+          text="Reorder"
         />
       </td>
     </tr>

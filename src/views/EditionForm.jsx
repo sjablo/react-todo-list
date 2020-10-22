@@ -18,16 +18,13 @@ const EditionForm = ({
     textColor,
   });
 
-  const handleChange = useCallback(
-    (event) => {
-      event.persist();
-      setState((prevState) => ({
-        ...prevState,
-        [event.target.name]: event.target.value,
-      }));
-    },
-    [setState]
-  );
+  const handleChange = useCallback((event) => {
+    event.persist();
+    setState((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
+  }, []);
 
   return (
     <div>
